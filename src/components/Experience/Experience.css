@@ -1,0 +1,300 @@
+.experience-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.experience-section .section-title,
+.experience-section .section-subtitle {
+  color: white;
+}
+
+.experience-tabs .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.experience-tabs .nav-link.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.experience-tabs .nav-link:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Timeline Experience */
+.timeline-experience {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-experience::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.experience-content {
+  width: 45%;
+  position: relative;
+}
+
+.experience-item.left .experience-content {
+  left: 0;
+}
+
+.experience-item.right .experience-content {
+  left: 55%;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.company-logo {
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.company-name {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #4fc3f7 !important;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.experience-meta span {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.job-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.achievements h6,
+.technologies h6 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #4fc3f7;
+}
+
+.achievements ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.achievements li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Timeline Marker */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 2;
+}
+
+.marker-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4fc3f7;
+  border: 3px solid white;
+  position: relative;
+}
+
+.marker-line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% + 4rem);
+  background: #4fc3f7;
+}
+
+/* Freelance Cards */
+.freelance-card,
+.certification-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.freelance-card:hover,
+.certification-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: black;
+}
+
+.client-name {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.project-description {
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.project-meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Statistics */
+.stats-row {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.experience-stat {
+  padding: 1rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #4fc3f7;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-experience::before {
+    left: 30px;
+  }
+  
+  .experience-item.left .experience-content,
+  .experience-item.right .experience-content {
+    left: 0;
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+  
+  .timeline-marker {
+    left: 30px;
+  }
+  
+  .experience-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tech-tags {
+    justify-content: flex-start;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience-tabs .nav-link {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .job-title {
+    font-size: 1.3rem;
+  }
+  
+  .company-name {
+    font-size: 1.1rem;
+  }
+}

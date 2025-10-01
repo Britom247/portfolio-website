@@ -1,0 +1,236 @@
+.about-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-image-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.about-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 123, 255, 0.9);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: 80%;
+}
+
+.overlay-content h5 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.overlay-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  font-size: 1.3rem;
+  color: #495057;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #6c757d;
+}
+
+.personal-info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.personal-info-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.personal-info-list li:last-child {
+  border-bottom: none;
+}
+
+.personal-info-list strong {
+  color: #343a40;
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* Stats Section */
+.stats-section {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  padding: 20px;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 0;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Education & Certifications Cards */
+.education-card, .certifications-card {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover, .certifications-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-card .card-header, .certifications-card .card-header {
+  border-radius: 15px 15px 0 0 !important;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.education-degree {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.education-institution {
+  font-size: 0.9rem;
+}
+
+.education-description {
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+.certifications-list {
+  list-style: none;
+  padding: 0;
+}
+
+.certification-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+}
+
+.certification-item:last-child {
+  border-bottom: none;
+}
+
+/* Skill Progress Bars */
+.skill-progress-item {
+  margin-bottom: 1rem;
+}
+
+.skill-progress-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 10px;
+}
+
+/* Passion Card */
+.passion-card {
+  border: none;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.passion-card h4 {
+  margin-bottom: 1rem;
+}
+
+.passion-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-heading {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about-image {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .personal-info-list {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .about-image {
+    width: 200px;
+    height: 200px;
+  }
+}
