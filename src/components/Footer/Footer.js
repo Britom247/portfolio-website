@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 import { Container, Row, Col, Nav, Modal } from 'react-bootstrap';
 import { FaHeart, FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaInstagram, FaFacebook, FaArrowUp, FaCode, FaCoffee } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -12,6 +13,14 @@ const Footer = () => {
     terms: false,
     sitemap: false
   });
+  const [email, setEmail] = useState('');
+  const [subscribeStatus, setSubscribeStatus] = useState('');
+
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_lrxpovl',
+    TEMPLATE_ID: 'template_k1y2iye',
+    USER_ID: 'WUkGBax0TmKiAFTuZ'
+  };
 
   const quickLinks = [
     { name: 'Home', href: '#home' },
@@ -81,6 +90,51 @@ const Footer = () => {
       text: 'Lagos, Nigeria',
     }
   ];
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      setSubscribeStatus('Please enter a valid email address');
+      setTimeout(() => setSubscribeStatus(''), 3000);
+      return;
+    }
+
+    try {
+      // Store subscriber locally
+      const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
+      subscribers.push({
+        email: email,
+        subscribedAt: new Date().toISOString()
+      });
+      localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+
+      // Send notification to yourself
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          to_email: 'britomm23@gmail.com',
+          subscriber_email: email,
+          subject: '🎉 New Newsletter Subscriber!',
+          date: new Date().toLocaleDateString(),
+          time: new Date().toLocaleTimeString()
+        },
+        EMAILJS_CONFIG.USER_ID
+      );
+
+      setSubscribeStatus('Thank you for subscribing! Welcome to the community! 🎉');
+      setEmail('');
+      
+    } catch (error) {
+      console.error('Subscription notification failed:', error);
+      // Still show success to user
+      setSubscribeStatus('Welcome to the newsletter! Thank you for subscribing!');
+      setEmail('');
+    }
+
+    setTimeout(() => setSubscribeStatus(''), 5000);
+  };
 
   const toggleModal = (modalName) => {
     setShowModal(prev => ({
@@ -300,14 +354,24 @@ const Footer = () => {
               {/* Newsletter Signup */}
               <div className="newsletter">
                 <h6 className="newsletter-title">Stay Updated</h6>
-                <div className="newsletter-form">
+                <form onSubmit={handleSubscribe} className="newsletter-form">
                   <input 
                     type="email" 
                     placeholder="Your email address"
                     className="newsletter-input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
-                  <button className="newsletter-btn">Subscribe</button>
-                </div>
+                  <button type="submit" className="newsletter-btn">
+                    Subscribe
+                  </button>
+                </form>
+                {subscribeStatus && (
+                  <div className={`subscribe-status ${subscribeStatus.includes('Thank you') ? 'success' : 'error'}`}>
+                    {subscribeStatus}
+                  </div>
+                )}
               </div>
             </Col>
           </Row>

@@ -32,8 +32,8 @@ const Experience = () => {
       title: "E-commerce Platform",
       client: "Noureesh Foods",
       period: "2025",
-      description: "Built a custom e-commerce solution with React and Node.js",
-      technologies: ["React", "Node.js", "Paystack", "MongoDB"],
+      description: "Developed Noureesh Foods, a responsive React-powered multi-page e-commerce website, styled with Bootstrap and custom CSS, showcasing food products with an engaging UI/UX, and deployed on Netlify via GitHub CI/CD.",
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Bootstrap', 'Paystack', 'GitHub', 'Netlify'],
       link: "noureesh-foods.netlify.app",
       status: "Completed"
     },

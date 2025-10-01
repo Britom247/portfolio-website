@@ -10,12 +10,22 @@ const Projects = () => {
     {
       id: 1,
       title: 'E-commerce Platform',
-      description: 'Full-stack e-commerce solution with React and Node.js',
+      description: 'Developed Noureesh Foods, a responsive React-powered multi-page e-commerce website, styled with Bootstrap and custom CSS, showcasing food products with an engaging UI/UX, and deployed on Netlify via GitHub CI/CD.',
       image: '/images/projects/project01.png',
-      technologies: ['React', 'Node.js', 'MongoDB'],
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Bootstrap', 'Paystack', 'GitHub', 'Netlify'],
       category: 'fullstack',
       liveUrl: 'noureesh-foods.netlify.app',
       githubUrl: 'https://github.com/Britom247'
+    },
+    {
+      id: 2,
+      title: 'Portfolio Website',
+      description: 'This portfolio website is a React-powered single-page application (SPA) styled with Bootstrap & custom CSS, enhanced with animations and icons, connected to EmailJS for contact, and deployed on Netlify with GitHub-based CI/CD.',
+      image: '/images/projects/project02.png',
+      technologies: ['React', 'Bootstrap', 'CSS', 'EmailJS', 'GitHub', 'Netlify'],
+      category: 'frontend',
+      liveUrl: 'bright-momoh.netlify.app',
+      githubUrl: 'https://github.com/Britom247/portfolio-website'
     }
   ];
 
