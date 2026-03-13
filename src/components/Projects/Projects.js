@@ -26,6 +26,16 @@ const Projects = () => {
       category: 'fullstack',
       liveUrl: 'https://noureesh-foods.netlify.app',
       githubUrl: 'https://github.com/Britom247'
+    },
+    {
+      id: 3,
+      title: 'DailyCrest Blog Platform',
+      description: 'Built DailyCrest, a scalable full-stack blogging platform featuring dynamic post retrieval, pagination, and RESTful API integration. The frontend is powered by React, while the backend runs on Node.js and Express with MongoDB Atlas for data persistence. Deployed using Netlify for the frontend and Render for the backend with automated GitHub CI/CD workflows.',
+      image: '/images/projects/project03.png',
+      technologies: ['React', 'Node.js', 'MongoDB Atlas', 'Express', 'Axios', 'GitHub', 'Netlify', 'Render'],
+      category: 'fullstack',
+      liveUrl: 'https://dailycrest.click',
+      githubUrl: 'https://github.com/Britom247/DailyCrest-Blog'
     }
   ];
 
