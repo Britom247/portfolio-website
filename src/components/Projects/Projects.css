@@ -111,6 +111,67 @@
   gap: 0.5rem;
 }
 
+.projects-carousel-wrapper {
+  position: relative;
+  padding: 0 2.8rem;
+}
+
+.projects-carousel-row {
+  margin: 0;
+}
+
+.slide-next {
+  animation: slideInFromRight 0.28s ease;
+}
+
+.slide-prev {
+  animation: slideInFromLeft 0.28s ease;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(18px);
+    opacity: 0.92;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-18px);
+    opacity: 0.92;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-arrow-left {
+  left: 0;
+}
+
+.carousel-arrow-right {
+  right: 0;
+}
+
 /* Call to Action Section */
 .projects-cta {
   background: white;
@@ -166,6 +227,10 @@
     width: 100%;
     margin-bottom: 0.5rem;
   }
+
+  .projects-carousel-wrapper {
+    padding: 0 2.2rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -177,5 +242,14 @@
   .no-projects-fallback,
   .no-filtered-projects-fallback {
     padding: 2rem 1rem;
+  }
+
+  .projects-carousel-wrapper {
+    padding: 0 2rem;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
   }
 }

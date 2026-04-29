@@ -37,6 +37,16 @@ const Experience = () => {
       link: "noureesh-foods.netlify.app",
       status: "Completed"
     },
+    {
+      id: 2,
+      title: "Amtowa Website Launch",
+      client: "Amtowa",
+      period: "2026",
+      description: "Delivered the newly launched Amtowa website as a client job, owning the full implementation from responsive UI build to deployment. The project improved the brand's online presence with a cleaner user journey, faster page experience, and production-ready rollout. Responsibilities included frontend development, backend/API integration, deployment setup, and post-launch optimization with GitHub-based delivery workflows.",
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Bootstrap', 'GitHub', 'Netlify', 'Render'],
+      link: "amtowa.com",
+      status: "Completed"
+    },
   ];
 
   // Fallback components
@@ -161,7 +171,7 @@ const Experience = () => {
         <Row className="stats-row mt-5">
           <Col lg={3} md={6} className="text-center mb-4">
             <div className="experience-stat">
-              <h3 className="stat-number">2+</h3>
+              <h3 className="stat-number">3+</h3>
               <p className="stat-label text-white">Years Experience</p>
             </div>
           </Col>
@@ -179,7 +189,7 @@ const Experience = () => {
           </Col>
           <Col lg={3} md={6} className="text-center mb-4">
             <div className="experience-stat">
-              <h3 className="stat-number">7+</h3>
+              <h3 className="stat-number">10+</h3>
               <p className="stat-label text-white">Technologies</p>
             </div>
           </Col>

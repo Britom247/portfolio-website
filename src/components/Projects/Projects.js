@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
-import { FaCode, FaMobile, FaServer, FaGlobe, FaSearch, FaRegFrown, FaLaptopCode } from 'react-icons/fa';
+import { FaCode, FaMobile, FaServer, FaGlobe, FaSearch, FaRegFrown, FaLaptopCode, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Projects.css';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
+  const [slideDirection, setSlideDirection] = useState('next');
+  const [isSliding, setIsSliding] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
   const projects = [
     {
@@ -30,18 +36,107 @@ const Projects = () => {
     {
       id: 3,
       title: 'DailyCrest Blog Platform',
-      description: 'Built DailyCrest, a scalable full-stack blogging platform featuring dynamic post retrieval, pagination, and RESTful API integration. The frontend is powered by React, while the backend runs on Node.js and Express with MongoDB Atlas for data persistence. Deployed using Netlify for the frontend and Render for the backend with automated GitHub CI/CD workflows.',
+      description: 'Built DailyCrest, a full-stack blogging platform with dynamic post retrieval, pagination, and RESTful APIs. Developed with React, Node.js, Express, and MongoDB Atlas, and deployed on Netlify and Render via GitHub CI/CD.',
       image: '/images/projects/project03.png',
       technologies: ['React', 'Node.js', 'MongoDB Atlas', 'Express', 'Axios', 'GitHub', 'Netlify', 'Render'],
       category: 'fullstack',
       liveUrl: 'https://dailycrest.click',
       githubUrl: 'https://github.com/Britom247/DailyCrest-Blog'
+    },
+    {
+      id: 4,
+      title: 'Amtowa Website',
+      description: 'Launched the Amtowa website for a client, delivering a responsive full-stack build with smooth UX and production deployment.',
+      image: '/images/projects/project04.png',
+      technologies: ['React', 'Vite', 'React Router', 'Tailwind CSS', 'GitHub', 'Netlify', 'Google Maps Embed'],
+      category: 'frontend',
+      liveUrl: 'https://amtowatherapy.com',
+      githubUrl: 'https://github.com/Britom247/Amtowa-Therapy'
     }
   ];
 
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
+
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerView(1);
+      } else if (window.innerWidth < 1200) {
+        setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener('resize', updateCardsPerView);
+
+    return () => window.removeEventListener('resize', updateCardsPerView);
+  }, []);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [filter]);
+
+  const getVisibleProjects = () => {
+    if (filteredProjects.length <= cardsPerView) {
+      return filteredProjects;
+    }
+
+    return Array.from({ length: cardsPerView }, (_, offset) => {
+      const index = (currentIndex + offset) % filteredProjects.length;
+      return filteredProjects[index];
+    });
+  };
+
+  const visibleProjects = getVisibleProjects();
+
+  const goNext = () => {
+    setSlideDirection('next');
+    setIsSliding(true);
+    setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const goPrev = () => {
+    setSlideDirection('prev');
+    setIsSliding(true);
+    setCurrentIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+  };
+
+  useEffect(() => {
+    if (!isSliding) {
+      return undefined;
+    }
+
+    const timer = setTimeout(() => setIsSliding(false), 280);
+    return () => clearTimeout(timer);
+  }, [isSliding]);
+
+  const handleTouchStart = (e) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null || cardsPerView !== 1) {
+      return;
+    }
+
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50;
+
+    if (swipeDistance > minSwipeDistance) {
+      goNext();
+    } else if (swipeDistance < -minSwipeDistance) {
+      goPrev();
+    }
+  };
 
   // Category configurations
   const categories = [
@@ -148,57 +243,93 @@ const Projects = () => {
               <NoFilteredProjectsFallback />
             </Col>
           ) : (
-            filteredProjects.map(project => (
-              <Col lg={4} md={6} key={project.id} className="mb-4">
-                <Card className="project-card h-100">
-                  <div className="project-image-container">
-                    <Card.Img 
-                      variant="top" 
-                      src={project.image} 
-                      className="project-image"
-                      onError={(e) => {
-                        e.target.src = '/images/projects/placeholder.png';
-                      }}
-                    />
-                    <div className="project-category-badge">
-                      {categories.find(cat => cat.key === project.category)?.icon}
-                    </div>
-                  </div>
-                  <Card.Body className="d-flex flex-column">
-                    <Card.Title className="project-title">{project.title}</Card.Title>
-                    <Card.Text className="project-description">{project.description}</Card.Text>
-                    <div className="project-technologies mb-3">
-                      {project.technologies.map(tech => (
-                        <Badge key={tech} bg="secondary" className="tech-badge">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="project-links mt-auto">
-                      <Button 
-                        variant="primary" 
-                        className="me-2" 
-                        size="sm" 
-                        href={project.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        Live Demo
-                      </Button>
-                      <Button 
-                        variant="outline-dark" 
-                        size="sm" 
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        GitHub
-                      </Button>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
+            <Col lg={12}>
+              <div className="projects-carousel-wrapper">
+                {filteredProjects.length > 1 && (
+                  <Button
+                    variant="light"
+                    className="carousel-arrow carousel-arrow-left"
+                    onClick={goPrev}
+                    aria-label="Previous projects"
+                  >
+                    <FaChevronLeft />
+                  </Button>
+                )}
+
+                <Row className="projects-carousel-row">
+                  {visibleProjects.map(project => (
+                    <Col
+                      lg={12 / cardsPerView}
+                      md={12 / cardsPerView}
+                      key={project.id}
+                      className={`mb-4 ${isSliding ? `slide-${slideDirection}` : ''}`}
+                      onTouchStart={handleTouchStart}
+                      onTouchMove={handleTouchMove}
+                      onTouchEnd={handleTouchEnd}
+                    >
+                      <Card className="project-card h-100">
+                        <div className="project-image-container">
+                          <Card.Img 
+                            variant="top" 
+                            src={project.image} 
+                            className="project-image"
+                            onError={(e) => {
+                              e.target.src = '/images/projects/placeholder.png';
+                            }}
+                          />
+                          <div className="project-category-badge">
+                            {categories.find(cat => cat.key === project.category)?.icon}
+                          </div>
+                        </div>
+                        <Card.Body className="d-flex flex-column">
+                          <Card.Title className="project-title">{project.title}</Card.Title>
+                          <Card.Text className="project-description">{project.description}</Card.Text>
+                          <div className="project-technologies mb-3">
+                            {project.technologies.map(tech => (
+                              <Badge key={tech} bg="secondary" className="tech-badge">
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                          <div className="project-links mt-auto">
+                            <Button 
+                              variant="primary" 
+                              className="me-2" 
+                              size="sm" 
+                              href={project.liveUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                            >
+                              Live Demo
+                            </Button>
+                            <Button 
+                              variant="outline-dark" 
+                              size="sm" 
+                              href={project.githubUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                            >
+                              GitHub
+                            </Button>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+                </Row>
+
+                {filteredProjects.length > 1 && (
+                  <Button
+                    variant="light"
+                    className="carousel-arrow carousel-arrow-right"
+                    onClick={goNext}
+                    aria-label="Next projects"
+                  >
+                    <FaChevronRight />
+                  </Button>
+                )}
+              </div>
+            </Col>
           )}
         </Row>
 
