@@ -276,7 +276,7 @@ const Footer = () => {
                   </div>
                   <div className="stat-item">
                     <FaCoffee className="stat-icon" />
-                    <span>2+ Years Experience</span>
+                    <span>3+ Years Experience</span>
                   </div>
                 </div>
               </div>

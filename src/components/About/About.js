@@ -11,8 +11,8 @@ const About = () => {
     phone: "+234 707-972-4342",
     location: "Lagos, Nigeria",
     freelance: "Available",
-    experience: "2+ Years",
-    description: "I'm a passionate developer with 2+ years of experience creating modern web applications. I specialize in React, JavaScript, and responsive design."
+    experience: "3+ Years",
+    description: "I'm a passionate developer with 3+ years of experience creating modern web applications. I specialize in React, JavaScript, and responsive design."
   };
 
   const stats = [
