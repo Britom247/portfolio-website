@@ -7,23 +7,23 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState('professional');
 
   const professionalExperience = [
-    // {
-    //   id: 1,
-    //   title: "Senior Frontend Developer",
-    //   company: "Tech Innovations Inc.",
-    //   period: "2022 - Present",
-    //   location: "San Francisco, CA",
-    //   type: "Full-time",
-    //   description: "Lead frontend development for enterprise-level applications using React and TypeScript.",
-    //   achievements: [
-    //     "Led a team of 5 developers in building a scalable SaaS platform",
-    //     "Improved application performance by 40% through code optimization",
-    //     "Mentored junior developers and established coding standards",
-    //     "Implemented CI/CD pipelines reducing deployment time by 60%"
-    //   ],
-    //   technologies: ["React", "TypeScript", "Node.js", "AWS", "MongoDB"],
-    //   logo: "/images/tech-innovations-logo.png"
-    // }
+    {
+      id: 1,
+      title: "AI Automation Engineer (Voluntary)",
+      company: "FINZ Africa Limited",
+      period: "July 2026 - Present",
+      location: "Remote",
+      type: "Voluntary",
+      description: "Build AI-powered automation workflows, develop AI assistants, and integrate AI APIs to automate business processes.",
+      achievements: [
+        "Build AI-powered automation workflows",
+        "Develop AI assistants and integrate AI APIs",
+        "Automate business processes and third-party integrations",
+        "Collaborate with the engineering team to prototype and deploy AI-driven solutions"
+      ],
+      technologies: ["AI APIs", "Automation Workflows", "Third-party Integrations"],
+      logo: "/images/finz-logo.png"
+    }
   ];
 
   const freelanceProjects = [
