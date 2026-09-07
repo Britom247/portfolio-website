@@ -9,7 +9,7 @@ const Experience = () => {
   const professionalExperience = [
     {
       id: 1,
-      title: "AI Automation Engineer (Voluntary)",
+      title: "AI Automation Engineer",
       company: "FINZ Africa Limited",
       period: "July 2026 - Present",
       location: "Remote",
