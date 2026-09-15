@@ -79,7 +79,7 @@ const About = () => {
           <Col lg={4} className="mb-5">
             <div className="about-image-wrapper">
               <img 
-                src="/images/profile-photo.png" 
+                src="/images/profile-photo-02.png" 
                 alt="Profile" 
                 className="about-image img-fluid rounded-circle"
               />

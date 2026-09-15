@@ -91,7 +91,7 @@ const Hero = () => {
                 <Col lg={6}>
                   <div className="hero-image">
                     <img 
-                      src="/images/profile-photo.png" 
+                      src="/images/profile-photo-01.png" 
                       alt="Bright Momoh - Full Stack Developer" 
                       className="img-fluid rounded-circle"
                     />

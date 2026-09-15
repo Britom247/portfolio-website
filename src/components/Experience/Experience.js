@@ -11,7 +11,7 @@ const Experience = () => {
       id: 1,
       title: "AI Automation Engineer",
       company: "FINZ Africa Limited",
-      period: "July 2026 - Present",
+      period: "July 2026 - September 2026",
       location: "Remote",
       type: "Voluntary",
       description: "Build AI-powered automation workflows, develop AI assistants, and integrate AI APIs to automate business processes.",
